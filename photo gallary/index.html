@@ -92,8 +92,8 @@
 
     var btn = document.getElementsByTagName('button');
     var simage = document.getElementsByClassName('Simage');
-      
-    
+
+
     for (let i = 1; i < simage.length; i++) {
         simage[i].style.opacity = '0.4';
         var b = simage[i].getAttribute('data-rank');
@@ -117,13 +117,13 @@
     for (let i = 1; i < images.length; i++) {
         images[i].style.display = 'none';
     }
-    
+
 
     function makeallblur(rank){
-     
+
         for (let i = 0; i < simage.length; i++) {
        simage[i].style.opacity = '0.4';
-         
+
     }
       simage[rank].style.opacity = '1';
       hide();
@@ -135,7 +135,7 @@
     }
 
     function hide() {
-      
+
         for (let i = 0; i < images.length; i++) {
             images[i].style.display = "none";
         }
