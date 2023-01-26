@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        .container {
+            width: 100vw;
+            height: 100vh;
+
+        }
+
+        .myimage {
+            margin-left: 10vw;
+        }
+         .btn{
+                background-color: white;
+                padding: 10px;
+                font-family: sans-serif;
+                border-radius: 5px;
+         }
+        .btn:hover {
+           background-color: skyblue;
+            color: white
+        }
+
+        .myimage img {
+
+            width: 80vw;
+            height: 70vh;
+        }
+
+        .Simage {
+            display: inline;
+
+        }
+
+        .Simage img {
+            width: 32vw;
+            height: 30vh;
+            margin-left: 0.5vw;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="mySlides">
+            <div class="myimage">
+                <img src="./b5img/ab1.jpg">
+            </div>
+
+            <div class="myimage">
+                <img src="./b5img/ab3.jpg">
+            </div>
+
+            <div class="myimage">
+                <img src="./b5img/ab2.jpg">
+            </div>
+
+            <button class="btn">Next</button>
+
+
+        </div>
+        <div class="imagelist">
+            <div class="Simage" data-rank="0">
+                <img src="./b5img/ab1.jpg">
+            </div>
+            <div class="Simage" data-rank="1">
+                <img src="./b5img/ab3.jpg">
+            </div>
+            <div class="Simage" data-rank="2">
+                <img src="./b5img/ab2.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    let num = 0;
+
+    var btn = document.getElementsByTagName('button');
+    var simage = document.getElementsByClassName('Simage');
+      
+    
+    for (let i = 1; i < simage.length; i++) {
+        simage[i].style.opacity = '0.4';
+        var b = simage[i].getAttribute('data-rank');
+        console.log(b);
+    }
+
+    for (let i = 0; i < simage.length; i++) {
+        simage[i].addEventListener('click', function(){
+            console.log(this);
+            makeallblur(this.getAttribute('data-rank'));
+        })
+    }
+    btn[0].addEventListener('click', scale);
+
+    function scale() {
+
+        num = (num + 1) % 3;
+        makeallblur(num);
+    }
+    var images = document.getElementsByClassName('myimage');
+    for (let i = 1; i < images.length; i++) {
+        images[i].style.display = 'none';
+    }
+    
+
+    function makeallblur(rank){
+     
+        for (let i = 0; i < simage.length; i++) {
+       simage[i].style.opacity = '0.4';
+         
+    }
+      simage[rank].style.opacity = '1';
+      hide();
+      show(rank);
+    }
+    function show(n) {
+
+        images[n].style.display = 'block';
+    }
+
+    function hide() {
+      
+        for (let i = 0; i < images.length; i++) {
+            images[i].style.display = "none";
+        }
+    }
+
+
+</script>
+
+</html>
